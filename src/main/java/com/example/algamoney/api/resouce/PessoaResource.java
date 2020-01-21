@@ -21,50 +21,56 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.algamoney.api.event.RecursoCriadoEvent;
-import com.example.algamoney.api.model.Categoria;
-import com.example.algamoney.api.repository.CategoriaRepository;
-import com.example.algamoney.api.service.CategoriaService;
+import com.example.algamoney.api.model.Pessoa;
+import com.example.algamoney.api.repository.PessoaRepository;
+import com.example.algamoney.api.service.PessoaService;
 
 @RestController
-@RequestMapping("/categorias")
-public class CategoriaResource {
+@RequestMapping("/pessoas")
+public class PessoaResource {
 
 	@Autowired
-	private CategoriaRepository categoriaRepository;
+	private PessoaRepository pessoaRepository;
 	
 	@Autowired
-	private CategoriaService categoriaService;
+	private PessoaService pessoaService;
 	
 	@Autowired
 	private ApplicationEventPublisher publisher;
 	
 	@GetMapping
-	public List<Categoria> listar() {
-		return categoriaRepository.findAll();
+	public List<Pessoa> listar() {
+		return pessoaRepository.findAll();
 	}
-	
+
 	@GetMapping("/{codigo}")
 	public ResponseEntity<?> buscarPeloCodigo(@PathVariable Long codigo) {
-		Optional<Categoria> categoria = categoriaRepository.findById(codigo);
-		return !categoria.isEmpty() ?  ResponseEntity.ok(categoria) : ResponseEntity.notFound().build();
+		Optional<Pessoa> pessoa = pessoaRepository.findById(codigo);
+		return !pessoa.isEmpty() ? ResponseEntity.ok(pessoa) : ResponseEntity.notFound().build();
 	}
 	
 	@PostMapping
-	public ResponseEntity<Categoria> criar (@Valid @RequestBody Categoria categoria, HttpServletResponse response) {
-		Categoria categoriaSalva = categoriaRepository.save(categoria);
-		publisher.publishEvent(new RecursoCriadoEvent(this, response, categoriaSalva.getCodigo()));
-		return ResponseEntity.status(HttpStatus.CREATED).body(categoriaSalva);
+	public ResponseEntity<Pessoa> criar (@Valid @RequestBody Pessoa pessoa, HttpServletResponse response) {
+		Pessoa pessoaSalva = pessoaRepository.save(pessoa);
+		publisher.publishEvent(new RecursoCriadoEvent(this, response, pessoaSalva.getCodigo()));
+		return ResponseEntity.status(HttpStatus.CREATED).body(pessoaSalva);
 	}
 	
 	@DeleteMapping("/{codigo}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void remover(@PathVariable Long codigo) {
-		categoriaRepository.deleteById(codigo);
+		pessoaRepository.deleteById(codigo);
 	}
 	
 	@PutMapping("/{codigo}")
-	public ResponseEntity<Categoria> atualizar (@PathVariable Long codigo, @Valid @RequestBody Categoria categoria) {
-		Categoria categoriaSalva = categoriaService.atualizar(codigo, categoria);
-		return ResponseEntity.ok(categoriaSalva);
+	public ResponseEntity<Pessoa> atualizar (@PathVariable Long codigo, @Valid @RequestBody Pessoa pessoa) {
+		Pessoa pessoaSalva = pessoaService.atualizar(codigo, pessoa);
+		return ResponseEntity.ok(pessoaSalva);
+	}
+	
+	@PutMapping("/{codigo}/ativo")
+	@ResponseStatus(HttpStatus.NO_CONTENT)
+	public void atualizarPropriedadeAtivo (@PathVariable Long codigo, @Valid @RequestBody Boolean ativo) {
+		pessoaService.atualizarPropriedadeAtivo(codigo, ativo);
 	}
 }
