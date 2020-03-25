@@ -26,8 +26,8 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 			.secret("@ngul@r0")    // e senha do gmail, facebook e etc.
 			.scopes("read", "write")
 			.authorizedGrantTypes("password", "refresh_token")
-			.accessTokenValiditySeconds(20)
-			.refreshTokenValiditySeconds(3600 * 24);
+			.accessTokenValiditySeconds(20) // expira em 20 segundos
+			.refreshTokenValiditySeconds(3600 * 24); // expira em 24 horas
 	}
 	
 	@Override
