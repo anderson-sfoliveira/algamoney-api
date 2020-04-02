@@ -27,6 +27,10 @@ public class RefreshTokenCookiePreProcessorFilter implements Filter {
 
 		HttpServletRequest req = (HttpServletRequest) request;
 		
+		/*
+		 * Nas requisições para "/oauth/token" será verificado se existe o parâmetro "grant_type = refresh_token" e um cookie.
+		 * Se for verdadeiro , então o refresh_token salvo no cookie será adicionado aos parâmetros da requisição.
+		 */
 		if ("/oauth/token".equalsIgnoreCase(req.getRequestURI())
 				&& "refresh_token".equals(req.getParameter("grant_type"))
 				&& req.getCookies() != null) {

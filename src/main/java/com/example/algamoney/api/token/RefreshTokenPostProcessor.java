@@ -19,6 +19,12 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 @ControllerAdvice
 public class RefreshTokenPostProcessor implements ResponseBodyAdvice<OAuth2AccessToken>{
 
+	/*
+	 * 
+	 *	Essa classe adiciona o refresh token no Cookie nas resposta ao método "postAccessToken". 
+	 * 
+	 */
+	
 	@Override
 	public boolean supports(MethodParameter returnType, Class<? extends HttpMessageConverter<?>> converterType) {
 		return returnType.getMethod().getName().equals("postAccessToken"); // só executa o método abaixo quando retornar true;
