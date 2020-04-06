@@ -17,7 +17,7 @@ public abstract class Lancamento_ {
 	public static volatile SingularAttribute<Lancamento, LocalDate> dataVencimento;
 	public static volatile SingularAttribute<Lancamento, Categoria> categoria;
 	public static volatile SingularAttribute<Lancamento, BigDecimal> valor;
-	public static volatile SingularAttribute<Lancamento, LocalDate> dataPagamentoDate;
+	public static volatile SingularAttribute<Lancamento, LocalDate> dataPagamento;
 	public static volatile SingularAttribute<Lancamento, String> descricao;
 
 	public static final String CODIGO = "codigo";
@@ -27,7 +27,7 @@ public abstract class Lancamento_ {
 	public static final String DATA_VENCIMENTO = "dataVencimento";
 	public static final String CATEGORIA = "categoria";
 	public static final String VALOR = "valor";
-	public static final String DATA_PAGAMENTO_DATE = "dataPagamentoDate";
+	public static final String DATA_PAGAMENTO = "dataPagamento";
 	public static final String DESCRICAO = "descricao";
 
 }
