@@ -26,12 +26,19 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 	@Override
 	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
 		clients.inMemory()
-			.withClient("angular") 
-			.secret("$2a$10$BeB1KTIE9CnlgVUqhcKmPeWkljK6hes5l/Kv8A1Wxag6i/AbpElhi") // senha " @ngul@r0 " encodada 
-			.scopes("read", "write")
-			.authorizedGrantTypes("password", "refresh_token")
-			.accessTokenValiditySeconds(20) // expira em 20 segundos
-			.refreshTokenValiditySeconds(3600 * 24); // expira em 24 horas
+				.withClient("angular") 
+				.secret("$2a$10$BeB1KTIE9CnlgVUqhcKmPeWkljK6hes5l/Kv8A1Wxag6i/AbpElhi") // senha " @ngul@r0 " encodada 
+				.scopes("read", "write")
+				.authorizedGrantTypes("password", "refresh_token")
+				.accessTokenValiditySeconds(60) // expira em segundos
+				.refreshTokenValiditySeconds(3600 * 24) // expira em 24 horas
+			.and()
+				.withClient("mobile") 
+				.secret("$2a$10$gbYWEzQ0YwjqLwC1Cofag.OYKSQis71k8e8lfXieYGK.uOLaM2IPe") // senha "m0b1l30" encodada 
+				.scopes("read")
+				.authorizedGrantTypes("password", "refresh_token")
+				.accessTokenValiditySeconds(60) // expira em segundos
+				.refreshTokenValiditySeconds(3600 * 24); // expira em 24 horas
 	}
 	
 	@Override
