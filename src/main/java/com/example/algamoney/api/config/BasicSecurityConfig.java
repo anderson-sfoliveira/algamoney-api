@@ -21,16 +21,19 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		System.out.println("BasicSecurityConfig -> configure(AuthenticationManagerBuilder auth)");
 		auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
 	}
 	
 	@Bean
 	public PasswordEncoder passwordEncoder() {
+		System.out.println("BasicSecurityConfig -> passwordEncoder()");
 		return new BCryptPasswordEncoder();
 	}
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
+		System.out.println("BasicSecurityConfig -> configure(HttpSecurity http)");
 		http.authorizeRequests()
 			.anyRequest().authenticated()
 			.and()
