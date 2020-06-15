@@ -1,4 +1,4 @@
-package com.example.algamoney.api.resouce;
+package com.example.algamoney.api.resource;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;

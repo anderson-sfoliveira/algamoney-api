@@ -1,4 +1,4 @@
-package com.example.algamoney.api.resouce;
+package com.example.algamoney.api.resource;
 
 import java.util.Arrays;
 import java.util.List;

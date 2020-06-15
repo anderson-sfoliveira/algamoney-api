@@ -11,7 +11,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.example.algamoney.api.event.RecursoCriadoEvent;
 
 @Component
-public class RecurrsoCriadoListener implements ApplicationListener<RecursoCriadoEvent> {
+public class RecursoCriadoListener implements ApplicationListener<RecursoCriadoEvent> {
 
 	@Override
 	public void onApplicationEvent(RecursoCriadoEvent recursoCriadoEvent) {
