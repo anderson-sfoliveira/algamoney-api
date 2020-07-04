@@ -33,6 +33,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 	
 	@Override
 	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
+		System.out.println("AuthorizationServerConfig");
 		clients.inMemory()
 				.withClient("angular") 
 				.secret("$2a$10$BeB1KTIE9CnlgVUqhcKmPeWkljK6hes5l/Kv8A1Wxag6i/AbpElhi") // senha " @ngul@r0 " encodada 
