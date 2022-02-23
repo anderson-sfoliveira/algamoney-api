@@ -60,7 +60,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - **[Spring Boot](https://spring.io/projects/spring-boot)**
 - **[MySQL](https://www.mysql.com/)**
 
-> Veja o arquivo [pom.xml](https://github.com/anderson-sfoliveira/curso-injecao-dependencia/blob/master/pom.xml)
+> Veja o arquivo [pom.xml](https://github.com/anderson-sfoliveira/algamoney-api/blob/master/pom.xml)
 
 ---
 
