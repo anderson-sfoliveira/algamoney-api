@@ -30,7 +30,7 @@ Projeto desenvolvido durante o curso **Fullstack Angular e Spring** oferecido pe
 ### Pré-requisitos
 
 Antes de começar, você vai precisar ter instalado em sua máquina a ferramenta:
-[Maven](https://maven.apache.org/).
+[Maven](https://maven.apache.org/) e [MySQL](https://www.mysql.com/).
 Além disto é bom ter um editor para trabalhar com o código como [Spring Tools 4 for Eclipse](https://spring.io/tools/).
 
 #### 🎲 Rodando o projeto
@@ -58,6 +58,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 - **[Maven](https://maven.apache.org/)**
 - **[Spring Boot](https://spring.io/projects/spring-boot)**
+- **[MySQL](https://www.mysql.com/)**
 
 > Veja o arquivo [pom.xml](https://github.com/anderson-sfoliveira/curso-injecao-dependencia/blob/master/pom.xml)
 
