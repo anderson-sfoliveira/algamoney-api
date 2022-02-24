@@ -1,5 +1,5 @@
 ﻿<h1 align="center">
-  Fullstack Angular e Spring
+  <a href="#">Fullstack Angular e Spring</a>
 </h1>
 
 <h4 align="center">
@@ -59,6 +59,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - **[Maven](https://maven.apache.org/)**
 - **[Spring Boot](https://spring.io/projects/spring-boot)**
 - **[MySQL](https://www.mysql.com/)**
+- **[Heroku](https://www.heroku.com/)**
 
 > Veja o arquivo [pom.xml](https://github.com/anderson-sfoliveira/algamoney-api/blob/master/pom.xml)
 
