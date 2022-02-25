@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
 import com.example.algamoney.api.config.property.AlgamoneyApiProperty;
+import com.example.algamoney.api.wrapper.CustomHttpServletResponseWrapper;
 
 @ControllerAdvice
 public class RefreshTokenPostProcessor implements ResponseBodyAdvice<OAuth2AccessToken>{
@@ -63,6 +64,10 @@ public class RefreshTokenPostProcessor implements ResponseBodyAdvice<OAuth2Acces
 		refreshTokenCookie.setSecure(algamoneyApiProperty.getSeguranca().isEnableHttps());
 		refreshTokenCookie.setPath(req.getContextPath() + "/oauth/token");
 		refreshTokenCookie.setMaxAge(2592000); // tempo de vida do cookie = 30 dias
-		resp.addCookie(refreshTokenCookie);		
+		refreshTokenCookie.setDomain(algamoneyApiProperty.getDomainTokenCookie());
+
+		CustomHttpServletResponseWrapper customHttpServletResponseWrapper = new CustomHttpServletResponseWrapper(resp);
+		customHttpServletResponseWrapper.addCookie(refreshTokenCookie);
+		// resp.addCookie(refreshTokenCookie);		
 	}
 }

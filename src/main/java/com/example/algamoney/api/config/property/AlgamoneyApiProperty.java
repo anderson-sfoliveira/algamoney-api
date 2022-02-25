@@ -7,6 +7,8 @@ public class AlgamoneyApiProperty {
 
 	private String[] originPermitida;
 
+	private String domainTokenCookie;
+
 	private final Seguranca seguranca = new Seguranca();
 
 	public Seguranca getSeguranca() {
@@ -19,6 +21,14 @@ public class AlgamoneyApiProperty {
 
 	public void setOriginPermitida(String[] originPermitida) {
 		this.originPermitida = originPermitida;
+	}
+
+	public String getDomainTokenCookie() {
+		return domainTokenCookie;
+	}
+
+	public void setDomainTokenCookie(String domainTokenCookie) {
+		this.domainTokenCookie = domainTokenCookie;
 	}
 
 	public static class Seguranca {
