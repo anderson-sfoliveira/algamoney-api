@@ -1,6 +1,9 @@
 package com.example.algamoney.api.cors;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -31,14 +34,20 @@ public class CorsFilter implements Filter {
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse resp = (HttpServletResponse) response;
 		
-		resp.setHeader("Access-Control-Allow-Origin", algamoneyApiProperty.getOriginPermitida());
+		String[] allowDomain = algamoneyApiProperty.getOriginPermitida();
+		Set<String> allowedOrigins = new HashSet<String>(Arrays.asList (allowDomain));                  
+        
+        String originHeader = req.getHeader("Origin");
+        
+        if (allowedOrigins.contains(originHeader)) {
+        	resp.setHeader("Access-Control-Allow-Origin", originHeader);
+        } else {
+        	allowedOrigins.forEach(p -> resp.setHeader("Access-Control-Allow-Origin", p));
+        }
+        
 		resp.setHeader("Access-Control-Allow-Credentials", "true");
 		
-		if ("OPTIONS".equals(req.getMethod()) && algamoneyApiProperty.getOriginPermitida().equals(req.getHeader("Origin"))) {
-
-			// MESMO REMOVENDO AS OPÇÕES DE CADA MÉTODO O "CLIENT" AINDA CONSEGUE FAZER A REQUISIÇÃO.... TESTAR
-			// No chrome não demonstra a requisição OPTIONS
-			
+		if ("OPTIONS".equals(req.getMethod()) && allowedOrigins.contains(originHeader)) {
 			resp.setHeader("Access-Control-Allow-Methods", "POST, DELETE, GET, PUT, OPTIONS");
 			resp.setHeader("Access-Control-Allow-Headers", "Authorization, Content-Type, Accept");
 			resp.setHeader("Access-Control-Max-Age", "10"); // tempo do pre-flight para fazer a requisição OPTIONS novamente = 10 segundos

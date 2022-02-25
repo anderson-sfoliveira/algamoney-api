@@ -11,6 +11,7 @@
 <!--ts-->
 
 - [Sobre o projeto](#-sobre-o-projeto)
+- [Link para teste](#-link-para-teste)
 - [Como executar o projeto](#-como-executar-o-projeto)
   - [Pré-requisitos](#pré-requisitos)
   - [Rodando o projeto](#user-content--rodando-o-projeto)
@@ -22,6 +23,16 @@
 ## 💻 Sobre o projeto
 
 Projeto desenvolvido durante o curso **Fullstack Angular e Spring** oferecido pela [Algaworks](https://www.algaworks.com/).
+
+---
+
+## 🧪 Link para teste
+
+URL: https://algamoney-ui-mycloud.herokuapp.com/
+<br/>
+Usuário: admin@algamoney.com
+<br/>
+Senha: admin
 
 ---
 
