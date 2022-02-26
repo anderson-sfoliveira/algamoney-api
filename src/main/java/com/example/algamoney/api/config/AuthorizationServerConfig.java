@@ -39,8 +39,8 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 				.secret("$2a$10$BeB1KTIE9CnlgVUqhcKmPeWkljK6hes5l/Kv8A1Wxag6i/AbpElhi") // senha " @ngul@r0 " encodada 
 				.scopes("read", "write")
 				.authorizedGrantTypes("password", "refresh_token")
-				.accessTokenValiditySeconds(60) // expira em segundos
-				.refreshTokenValiditySeconds(3600 * 24) // expira em 24 horas
+				.accessTokenValiditySeconds(900) // 15 min
+				.refreshTokenValiditySeconds(1209600) // refreshtoken expira após 2 semanas sem uso do sistema
 			.and()
 				.withClient("mobile") 
 				.secret("$2a$10$gbYWEzQ0YwjqLwC1Cofag.OYKSQis71k8e8lfXieYGK.uOLaM2IPe") // senha "m0b1l30" encodada 
